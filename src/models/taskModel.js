@@ -1,5 +1,19 @@
 // src/models/taskModel.js
 
+/*
+ * Task Object structure:
+ * 
+ * task = {
+ *          id: number,           // unique identifier for the task
+ *          title: string,        // short description of the task
+ *          dueDate: string,      // date in "YYYY-MM-DD" format for when the task is due
+ *          completed: boolean,   // true if task is done, false otherwise
+ *          notes?: string,       // optional, extra information about the task
+ *          createdAt?: string,   // optional, date task was created (YYYY-MM-DD)
+ *          lastUpdated?: string  // optional, last modification date (YYYY-MM-DD)
+ *         }
+ */
+
 let tasks = [
     {id: 1, title: "Buy groceries", dueDate: "2025-09-20", completed: false},
     {id: 2, title: "Pay Rent", dueDate: "2025-10-01", completed: false},
