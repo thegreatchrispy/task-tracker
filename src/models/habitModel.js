@@ -22,12 +22,20 @@
  *         }
  */
 
+// TODO: Remove hardcoded sample habits. Replace with data loaded from persistence (JSON/DB).
 let habits = [
     {id: 1, title: "Buy groceries", frequencyType: "weekly", frequencyDetail: "1000000", streak: 0, completedDates: [], active: true},
     {id: 2, title: "Pay Rent", frequencyType: "monthly", frequencyDetail: 1, streak: 5, completedDates: ["2025-01-01", "2025-02-01", "2025-03-01","2025-04-01", "2025-05-01"], active: true},
     {id: 3, title: "Exercise", frequencyType: "daily", frequencyDetail: null, streak: 2, completedDates: ["2025-09-15","2025-09-16"], active: false},
     {id: 20, title: "Learn Spanish", frequencyType: "interval", frequencyDetail: 3, streak: 0, completedDates: [], active: true},
 ];
+
+// TODO: Replace this helper with auto-incrementing IDs when persistence (JSON/DB) is implemented.
+//       Remove this function entirely once IDs are handled by the storage layer.
+function getNextId(list) {
+    if (list.lenth === 0) return 1;
+    return Math.max(...list.map(item => item.id)) + 1;
+}
 
 /**
  * Validate frequencyType and frequencyDetail combination
@@ -71,7 +79,7 @@ function createHabit(title, frequencyType, frequencyDetail) {
     }
 
     const newHabit = {
-        id: habits.length > 0 ? habits[habits.length - 1].id + 1 : 1,
+        id: getNextId(habits),
         title,
         frequencyType,
         frequencyDetail,

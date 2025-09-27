@@ -14,12 +14,20 @@
  *         }
  */
 
+// TODO: Remove hardcoded sample tasks. Replace with data loaded from persistence (JSON/DB).
 let tasks = [
     {id: 1, title: "Buy groceries", dueDate: "2025-09-20", completed: false},
     {id: 2, title: "Pay Rent", dueDate: "2025-10-01", completed: false},
     {id: 3, title: "Exercise", dueDate: "2025-09-16", completed: false},
     {id: 20, title: "Fill gas tank", dueDate: "2025-09-16", completed: true}
 ];
+
+// TODO: Replace this helper with auto-incrementing IDs when persistence (JSON/DB) is implemented.
+//       Remove this function entirely once IDs are handled by the storage layer.
+function getNextId(list) {
+    if (list.lenth === 0) return 1;
+    return Math.max(...list.map(item => item.id)) + 1;
+}
 
 function getAllTasks() {
     return tasks;
@@ -33,7 +41,7 @@ function getTaskById(id) {
 
 function createTask(title, dueDate) {
     const newTask = {
-        id: tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1,
+        id: getNextId(tasks),
         title,
         dueDate,
         completed: false
