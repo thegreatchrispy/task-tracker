@@ -6,7 +6,7 @@ const testValue = 99999;
 
 const BASE_URL = `http://localhost:${port}/habits`;
 
-// Set up dates for test Tasks
+// Set up dates for test Habits
 const today = new Date();                   // Date object
 const tomorrow = new Date(today);           // create copy of today
 tomorrow.setDate(tomorrow.getDate() + 1);   // increment day by 1
@@ -16,6 +16,7 @@ const tomorrowDate = tomorrow.toISOString().split("T")[0]; // convert "YYYY-MM-D
 let testPass = 0;
 let testFail = 0;
 
+// TODO: Update functions to use Habit object instead of Task Objects
 async function testTasksAPI() {
     try { // Try all tests | Numbering = Phase.Test.Case
         console.log("=============== HABITS API TESTS ===============");
@@ -23,20 +24,20 @@ async function testTasksAPI() {
         // 1.1 Positive POST - create a valid habit
         console.log("* 1.1 Positive POST: Creating a new habit...");
         let response = await axios.post(BASE_URL, {
-            title: "Positive Test Task 1",
+            title: "Positive Test Habit 1",
             dueDate: tomorrowDate,
             completed: false
         });
 
-        const task = response.data;
-        console.log("Created task: ", task, "\n");
+        const habit = response.data;
+        console.log("Created habit: ", habit, "\n");
         testPass++;
         console.log(`Tests passed so far: ${testPass}\n`);
 
-        // 1.2 Negative POST - create an invalid task
+        // 1.2 Negative POST - create an invalid habit
         try {
             // 1.2.1 missing title
-            console.log("* 1.2.1 Negative POST: Creating a task with missing title...");
+            console.log("* 1.2.1 Negative POST: Creating a habit with missing title...");
             await axios.post(BASE_URL, {
                 dueDate: tomorrowDate,
                 completed: false
