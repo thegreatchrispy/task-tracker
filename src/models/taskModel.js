@@ -4,10 +4,10 @@
  * Task Object structure:
  * 
  * task = {
- *          id: number,           // unique identifier for the task
- *          title: string,        // short description of the task
- *          dueDate: string,      // date in "YYYY-MM-DD" format for when the task is due
- *          completed: boolean,   // true if task is done, false otherwise
+ *          id: number,           // required, unique identifier for the task
+ *          title: string,        // required, short description of the task
+ *          dueDate: string,      // required, date in "YYYY-MM-DD" format for when the task is due
+ *          completed: boolean,   // required, true if task is done, false otherwise
  *          notes?: string,       // optional, extra information about the task
  *          createdAt?: string,   // optional, date task was created (YYYY-MM-DD)
  *          lastUpdated?: string  // optional, last modification date (YYYY-MM-DD)

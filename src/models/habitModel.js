@@ -4,18 +4,18 @@
  * Habit Object structure:
  * 
  * habit = {
- *          id: number,                   // unique identifier
- *          title: string,                // short description of the habit
- *          frequencyType: string,        // "daily", "weekly", "monthly", "interval"
+ *          id: number,                   // required, unique identifier
+ *          title: string,                // required, short description of the habit
+ *          frequencyType: string,        // required, "daily", "weekly", "monthly", "interval"
  *          frequencyDetail: string | number | null, 
- *                                          // depends on frequencyType:
+ *                                          // required, depends on frequencyType:
  *                                          // weekly: 7-character string of 0/1 for days of week
  *                                          // monthly: number (day of month 1–31)
  *                                          // interval: number (every X days)
  *                                          // daily: null
- *          streak: number,               // number of consecutive completions
- *          completedDates: string[],     // array of dates in "YYYY-MM-DD" format
- *          active: boolean,              // whether the habit is currently tracked
+ *          streak: number,               // required, number of consecutive completions
+ *          completedDates: string[],     // required, array of dates in "YYYY-MM-DD" format
+ *          active: boolean,              // required, whether the habit is currently tracked
  *          notes?: string,               // optional, extra information about the habit
  *          createdAt?: string,           // optional, date habit was created (YYYY-MM-DD)
  *          lastUpdated?: string          // optional, last modification date (YYYY-MM-DD)
