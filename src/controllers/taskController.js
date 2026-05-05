@@ -48,7 +48,7 @@ function deleteTask(req, res) {
         return res.status(404).json({error: "Task not found"});
     }
 
-    res.json(204).send(); // 204 = No content
+    res.status(204).send(); // 204 = No content
 }
 
 module.exports = {getTasks, getTaskById, createTask, updateTask, deleteTask};

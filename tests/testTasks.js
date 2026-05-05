@@ -1,4 +1,5 @@
 // tests/testTasks.js
+// TODO: Create runTests.bat batch script that checks if server is running and launches it if not before running test files
 
 const axios = require("axios");
 const port = 3000;

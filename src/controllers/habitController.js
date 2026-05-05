@@ -29,7 +29,7 @@ function createHabit(req, res) {
     }
 
     try {
-        const newHabit = HabitModel.addHabit(title, frequencyType, frequencyDetail);
+        const newHabit = HabitModel.createHabit(title, frequencyType, frequencyDetail);
         res.status(201).json(newHabit);
     } catch (err) {
         res.status(400).json({error: err.message});
@@ -58,7 +58,7 @@ function deleteHabit(req, res) {
         return res.status(404).json({error: "Habit not found"});
     }
 
-    res.json(204).send(); // 204 = No content
+    res.status(204).send(); // 204 = No content
 }
 
 module.exports = {getHabits, getHabitById, createHabit, updateHabit, deleteHabit};

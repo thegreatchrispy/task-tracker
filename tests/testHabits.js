@@ -1,4 +1,5 @@
 // tests/testHabits.js
+// TODO: Create runTests.bat batch script that checks if server is running and launches it if not before running test files
 
 const axios = require("axios");
 const port = 3000;
@@ -16,8 +17,9 @@ const tomorrowDate = tomorrow.toISOString().split("T")[0]; // convert "YYYY-MM-D
 let testPass = 0;
 let testFail = 0;
 
-// TODO: Update functions to use Habit object instead of Task Objects
-async function testTasksAPI() {
+// TODO: Update functions to use Habit object instead of Task
+// + Objects
+async function testHabitsAPI() {
     try { // Try all tests | Numbering = Phase.Test.Case
         console.log("=============== HABITS API TESTS ===============");
 
@@ -195,4 +197,4 @@ async function testTasksAPI() {
     console.log("Tests Failed/Tests Total: ", testFail, "/", testPass + testFail);
 }
 
-testTasksAPI();
+testHabitsAPI();

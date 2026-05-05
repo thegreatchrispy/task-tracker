@@ -1,4 +1,4 @@
-// src/routes/taskRoutes.js
+// src/routes/habitRoutes.js
 
 const express = require("express");
 const router = express.Router();
